@@ -86,7 +86,7 @@
 
             this.$elem.removeClass('is-show').one('webkitTransitionEnd oTransitionEnd transitionend', function() {
                 _this.$elem.remove();
-				_this.config.callback && _this.config.callback.apply(_this);
+                _this.config.callback && _this.config.callback.apply(_this);
             });
 
             return this;

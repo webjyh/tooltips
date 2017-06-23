@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Tooltips.js 简单简洁的信息提示框</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_vsqt2ljaiv7eewmi.css">
+
+	<!-- include tooltips.css -->
+    <link rel="stylesheet" href="dist/tooltips.min.css">
+
+	<!-- page.css -->
+	<style type="text/css">
+		html {
+			background: #f1f1f1;
+			margin: 0 20px;
+		}
+
+		body {
+			background: #fff;
+			color: #444;
+			font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+			margin: 140px auto 25px;
+			padding: 20px 20px 10px 20px;
+			max-width: 700px;
+			-webkit-font-smoothing: subpixel-antialiased;
+			-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+			box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+		}
+
+		a {
+			color: #0073aa;
+		}
+
+		h1, h2 {
+			border-bottom: 1px solid #ddd;
+			clear: both;
+			color: #666;
+			font-size: 24px;
+			padding: 0;
+			padding-bottom: 7px;
+			font-weight: 400;
+		}
+
+		h3 {
+			font-size: 16px;
+		}
+
+		p, li, dd, dt {
+			padding-bottom: 2px;
+			font-size: 14px;
+			line-height: 1.5;
+		}
+
+		code, .code {
+			font-family: Consolas, Monaco, monospace;
+		}
+
+		ul, ol, dl {
+			padding: 5px 5px 5px 22px;
+		}
+
+		a img {
+			border:0
+		}
+		abbr {
+			border: 0;
+			font-variant: normal;
+		}
+
+		fieldset {
+			border: 0;
+			padding: 0;
+			margin: 0;
+		}
+
+		label {
+			cursor: pointer;
+		}
+
+
+		#logo {
+			margin: 6px 0 14px 0;
+			padding: 0 0 7px 0;
+			border-bottom: none;
+			text-align:center
+		}
+
+		#logo a {
+			color: #444;
+			font-size: 42px;
+			font-weight: 400;
+			line-height: 1.3em;
+			margin: -130px auto 50px;
+			padding: 0;
+			text-decoration: none;
+			outline: none;
+			overflow: hidden;
+			display: block;
+		}
+
+		.ui-icon {
+			font-size: 24px;
+			line-height: 24px;
+			vertical-align: middle;
+			position: relative;
+			margin-right: 10px;
+			top: -1px;
+		}
+
+		.btn {
+			display: inline-block;
+			color: #333;
+			text-decoration: none;
+			margin-bottom: 15px;
+			padding: 7px 20px;
+			border: 1px solid #d9d9d9;
+			background-color: #FFF;
+			margin-right: 10px;
+			border-radius: 3px;
+			font-size: 14px;
+		}
+
+		.btn.success { background-color: #50bfff; border-color: #50bfff; color: #FFF; }
+		.btn.warning { background-color: #f7ba2a; border-color: #f7ba2a; color: #FFF; }
+		.btn.danger { background-color: #ff4949; border-color: #ff4949; color: #FFF; }
+	</style>
+</head>
+<body>
+
+	<h1 id="logo">
+		<a href="https://github.com/webjyh/tooltips">Tooltips.js</a>
+	</h1>
+	<h3>默认类型</h3>
+	<div style="margin-bottom: 20px;" id="btn-default">
+		<a href="javascript:;" class="btn default">默认</a>
+		<a href="javascript:;" class="btn success">成功</a>
+		<a href="javascript:;" class="btn warning">警告</a>
+		<a href="javascript:;" class="btn danger">危险</a>
+	</div>
+	<h3>设置带 icon <small style="color: #ff4949;">[图标样式需自己设置]</small></h3>
+	<div style="margin-bottom: 20px;" id="btn-icon">
+		<a href="javascript:;" class="btn success">成功</a>
+		<a href="javascript:;" class="btn warning">警告</a>
+		<a href="javascript:;" class="btn danger">危险</a>
+	</div>
+	<h3>设置关闭时间</h3>
+	<div style="margin-bottom: 20px;" id="btn-duration">
+		<a href="javascript:;" class="btn success">5 秒后消失</a>
+	</div>
+	<h3>设置关闭时回调</h3>
+	<div style="margin-bottom: 20px;" id="btn-callback">
+		<a href="javascript:;" class="btn success">我会 alert(1); </a>
+	</div>
+	<h3>多文字展示 <small style="color: #ff4949;">[手机下预览效果更明显]</small></h3>
+	<div style="margin-bottom: 20px;" id="btn-longtext">
+		<a href="javascript:;" class="btn success">我是非常多的文字</a>
+	</div>
+
+	<h3>#About</h3>
+	<div style="margin-bottom: 20px;">
+		<a href="http://webjyh.com" target="_blank" style="margin-right: 20px;">M.J</a>
+		<a href="https://github.com/webjyh/tooltips" target="_blank">GitHub</a>
+	</div>
+
+	<!-- include zepto.js -->
+	<script type="text/javascript" src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+	<!-- include tooltips.js -->
+	<script type="text/javascript" src="dist/tooltips.min.js"></script>
+	<script type="text/javascript">
+	(function() {
+
+		$('#btn-default .btn').on('click', function() {
+			var $elem = $(this),
+				className = $elem[0].className,
+				type = className.replace('btn ', '');
+
+			$.tooltips('我是 tooltips.js 消息提示', {
+				type: type,
+				duration: 3000
+			});
+		});
+
+		$('#btn-icon .btn').on('click', function() {
+			var $elem = $(this),
+				className = $elem[0].className,
+				type = className.replace('btn ', '');
+
+			$.tooltips('<i class="ui-icon iconfont icon-'+ type +'"></i> 图标和图标样式需要自己设置！', {
+				type: type,
+				duration: 3000
+			});
+		});
+
+		$('#btn-duration .btn').on('click', function() {
+			$.tooltips('我 5 秒后自动消失，默认是3秒哦！', 5000);
+		});
+
+		$('#btn-callback .btn').on('click', function() {
+			$.tooltips('过会关闭的时候 alert(1);', {
+				type: 'success',
+				duration: 3000,
+				callback: function() {
+					alert(1);
+				}
+			});
+		});
+
+		$('#btn-longtext .btn').on('click', function() {
+			$.tooltips('我是非常非常非常多的文字;我是非常非常非常多的文字;我是非常非常非常多的文字;我是非常非常非常多的文字;');
+		});
+
+	}());
+	</script>
+</body>
+</html>

@@ -22,7 +22,7 @@ npm run build
 ``` 
 
 ### 组件说明
-1. 组件依赖 jQuery 或 Zepto 库
+1. 组件依赖 jQuery 或 Zepto (1.2+) 库
 2. 兼容性  `IE10+`, `Google Chrome`, `Firefox`, `Safari`, `Android 4.4+`, `iOS 8.0+` 
 3. 因只是个人项目生产中，无意想到要用，所以匆忙写的，功能较单一，可能会遇到意想不到的 Bug。
 

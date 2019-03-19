@@ -5,7 +5,7 @@
 ### Demo 预览 
 http://demo.webjyh.com/tooltips
 
-![http://webjyh.qiniudn.com/tooltips_qrcode.png](http://webjyh.qiniudn.com/tooltips_qrcode.png)
+![http://cdn.webjyh.com/vue_tooltips_qrcode.png](http://cdn.webjyh.com/vue_tooltips_qrcode.png)
 
 ### 源码说明
 1. `./src/` 为源码目录
